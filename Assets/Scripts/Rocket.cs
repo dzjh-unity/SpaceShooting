@@ -29,4 +29,10 @@ public class Rocket : MonoBehaviour
         // 向前（z方向）移动
         transform.Translate(new Vector3(0,0,m_speed * Time.deltaTime));
     }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.tag == "Enemy") {
+            Destroy(this.gameObject);
+        }
+    }
 }

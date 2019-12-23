@@ -12,6 +12,8 @@ public class Player : MonoBehaviour
 
     public float m_rocketTimer = 0;
 
+    public float m_life = 3;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -56,5 +58,14 @@ public class Player : MonoBehaviour
         this.transform.Translate(new Vector3(moveh, 0, movev));
         // // 相当于
         // this.transform.position += new Vector3(moveh, 0, movev);
+    }
+
+    void OnTriggerEnter(Collider other) {
+        if (other.tag != "PlayerRocket") {
+            m_life -= 1;
+            if (m_life <- 0) {
+                Destroy(this.gameObject);
+            }
+        }
     }
 }
