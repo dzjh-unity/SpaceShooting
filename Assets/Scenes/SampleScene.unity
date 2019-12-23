@@ -274,6 +274,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 26106cb312088cb448cd0d5c05431246, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 26106cb312088cb448cd0d5c05431246, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -684,6 +688,7 @@ MonoBehaviour:
   m_rocket: {fileID: 8798295482450562837, guid: bc4c2b83032bad249b9ea4cebc613e64,
     type: 3}
   m_rocketTimer: 0
+  m_life: 3
 --- !u!54 &1982686114
 Rigidbody:
   m_ObjectHideFlags: 0
