@@ -6,6 +6,7 @@ TagManager:
   tags:
   - PlayerRocket
   - Enemy
+  - EnemyRocket
   layers:
   - Default
   - TransparentFX
