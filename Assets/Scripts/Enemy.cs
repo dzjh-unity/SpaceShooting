@@ -17,10 +17,14 @@ public class Enemy : MonoBehaviour
 
     internal bool m_isActive = false; // 是否激活
 
+    protected AudioSource m_audio; // 声音源
+    public Transform m_explosionFX; // 爆炸特效
+
     // Start is called before the first frame update
     void Start()
     {
         m_renderer = this.GetComponent<Renderer>();
+        m_audio = this.GetComponent<AudioSource>(); // 获取声音源组件
     }
 
     void OnBecameVisible() { // 当模型进入可视范围时触发
@@ -38,7 +42,7 @@ public class Enemy : MonoBehaviour
 
     protected virtual void UpdateMove() {
         // 左右移动
-        float rx = Mathf.Sin(Time.time) * Time.deltaTime;
+        float rx = Mathf.Sin(Time.time) * Time.deltaTime * 2;
         // 前进（-z方向）
         transform.Translate(new Vector3(rx, 0, -m_speed * Time.deltaTime));
     }
@@ -49,12 +53,16 @@ public class Enemy : MonoBehaviour
             if (rocket != null) {
                 m_life -= rocket.m_power;
                 if (m_life <= 0) {
+                    // 播放爆炸特效
+                    Instantiate(m_explosionFX, this.transform.position, Quaternion.identity);
                     Destroy(this.gameObject);
                 }
-            } else if (other.tag == "Player") {
-                m_life = 0;
-                Destroy(this.gameObject);
             }
+        } else if (other.tag == "Player") {
+            m_life = 0;
+            // 播放爆炸特效
+            Instantiate(m_explosionFX, this.transform.position, Quaternion.identity);
+            Destroy(this.gameObject);
         }
     }
 }

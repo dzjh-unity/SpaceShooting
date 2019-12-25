@@ -10,6 +10,8 @@ public class SuperEnemy : Enemy
     public Transform m_rocket; // 子弹Prefab
     protected Transform m_player; // 主角
     protected float m_fireTimer = 1; // 射击定时器
+    
+    public AudioClip m_shootClip; // 射击声音文件
 
     protected override void UpdateMove() {
         m_fireTimer -= Time.deltaTime;
@@ -18,8 +20,9 @@ public class SuperEnemy : Enemy
             if (m_player != null) {
                 // 使用向量减法获取朝向主角位置的方向（目标位置-自身位置）
                 Vector3 relativePos = m_player.position - transform.position;
-                Debug.Log(relativePos);
                 Instantiate(m_rocket, transform.position, Quaternion.LookRotation(relativePos));
+                // 播放射击音效
+                m_audio.PlayOneShot(m_shootClip);
             } else {
                 GameObject obj = GameObject.FindGameObjectWithTag("Player"); // 查找主角
                 if (obj != null) {

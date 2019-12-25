@@ -14,10 +14,14 @@ public class Player : MonoBehaviour
 
     public float m_life = 3;
 
+    protected AudioSource m_audio; // 声音源
+    public AudioClip m_shootClip; // 射击声音文件
+    public Transform m_explosionFX; // 爆炸特效
+
     // Start is called before the first frame update
     void Start()
     {
-
+        m_audio = this.GetComponent<AudioSource>(); // 获取声音源组件
     }
 
     // Update is called once per frame
@@ -34,6 +38,8 @@ public class Player : MonoBehaviour
             // 按空格键或鼠标左键发射子弹
             if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) {
                 Instantiate(m_rocket, this.transform.position, this.transform.rotation);
+                // 播放射击音效
+                m_audio.PlayOneShot(m_shootClip);
             }
         }
 
@@ -63,7 +69,12 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.tag != "PlayerRocket") {
             m_life -= 1;
-            if (m_life <- 0) {
+            if (other.tag == "Enemy") {
+                m_life = 0;
+            }
+            if (m_life <= 0) {
+                // 播放爆炸特效
+                Instantiate(m_explosionFX, this.transform.position, Quaternion.identity);
                 Destroy(this.gameObject);
             }
         }
