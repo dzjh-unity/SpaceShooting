@@ -30,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4674335594603450673}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 3.54, y: 1, z: -0}
+  m_LocalPosition: {x: 3.54, y: 0.5, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -96,6 +96,7 @@ MonoBehaviour:
   m_speed: 1
   m_life: 18
   m_explosionFX: {fileID: 400000, guid: fd0604056527c68458f893a5f9dc89e6, type: 3}
+  m_point: 10
   m_rocket: {fileID: 1671513423440260054, guid: 011545dcff9366e4d846f0ecbbf57a6f,
     type: 3}
   m_shootClip: {fileID: 8300000, guid: 44ee0a0b2a99156438f0b733f8c877a3, type: 3}

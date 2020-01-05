@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 26161dc033f57cd4c9b25d66b9ad80ec
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - m_canvas_main: {instanceID: 0}
+  - m_canvas_gameover: {instanceID: 0}
+  - m_text_score: {instanceID: 0}
+  - m_text_hp: {instanceID: 0}
+  - m_musicClip: {fileID: 8300000, guid: cc36de746fd15894ca054d5b34b080f1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

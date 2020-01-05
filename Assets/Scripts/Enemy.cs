@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     protected AudioSource m_audio; // 声音源
     public Transform m_explosionFX; // 爆炸特效
 
+    public int m_point = 10; // 攻击力
+
     // Start is called before the first frame update
     void Start()
     {
@@ -53,6 +55,7 @@ public class Enemy : MonoBehaviour
             if (rocket != null) {
                 m_life -= rocket.m_power;
                 if (m_life <= 0) {
+                    GameManager.Instance.AddScore(m_point); // 更新分数值UI
                     // 播放爆炸特效
                     Instantiate(m_explosionFX, this.transform.position, Quaternion.identity);
                     Destroy(this.gameObject);

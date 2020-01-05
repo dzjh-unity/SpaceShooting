@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
 
     public float m_rocketTimer = 0;
 
-    public float m_life = 3;
+    public int m_life = 3;
 
     protected AudioSource m_audio; // 声音源
     public AudioClip m_shootClip; // 射击声音文件
@@ -72,6 +72,7 @@ public class Player : MonoBehaviour
             if (other.tag == "Enemy") {
                 m_life = 0;
             }
+            GameManager.Instance.ChangeHP(m_life); // 更新生命值UI
             if (m_life <= 0) {
                 // 播放爆炸特效
                 Instantiate(m_explosionFX, this.transform.position, Quaternion.identity);
