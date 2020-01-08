@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
     protected AudioSource m_audio; // 声音源
     public Transform m_explosionFX; // 爆炸特效
 
-    public int m_point = 10; // 攻击力
+    public int m_point = 10; // 分值
 
     // Start is called before the first frame update
     void Start()
