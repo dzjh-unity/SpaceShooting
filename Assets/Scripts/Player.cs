@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
         if (m_rocketTimer <= 0) {
             m_rocketTimer = 0.1f;
             // 按空格键或鼠标左键发射子弹
-            if (Input.GetKey(KeyCode.Space) || Input.GetMouseButton(0)) {
+            if (Input.GetKey(KeyCode.Space)) {
                 Instantiate(m_rocket, this.transform.position, this.transform.rotation);
                 // 播放射击音效
                 m_audio.PlayOneShot(m_shootClip);
