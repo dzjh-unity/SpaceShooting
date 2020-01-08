@@ -22,7 +22,7 @@ public class EnemySpawn : MonoBehaviour
 
     IEnumerator SpawnEnemy() {
         while(true) {
-            yield return new WaitForSeconds(Random.Range(3,5));
+            yield return new WaitForSeconds(Random.Range(5,8));
             Transform enemy = Instantiate(m_enemyPrefab, transform.position, Quaternion.identity) as Transform;
             enemy.Rotate(new Vector3(0, 90, 0));
         }
